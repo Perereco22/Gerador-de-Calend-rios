@@ -1,0 +1,102 @@
+Inicio
+    funcao inicio()
+    inicio
+        
+        inteiro mes, ano
+        escreva("Digite o mês (1-12): ")
+        leia(mes)
+        escreva("Digite o ano (ex: 2024): ")
+        leia(ano)
+
+        
+        se (mes < 1 ou mes > 12) entao
+            escreva("Mês inválido! Deve ser entre 1 e 12.")
+            pare
+        fimse
+
+        se (ano < 1900 ou ano > 2100) entao
+            escreva("Ano inválido! Deve ser entre 1900 e 2100.")
+            pare
+        fimse
+
+        
+        inteiro primeiroDia = calcularPrimeiroDia(mes, ano)
+        inteiro diasNoMes = calcularDiasNoMes(mes, ano)
+
+        
+        exibirCalendario(primeiroDia, diasNoMes, mes, ano)
+    fimfuncao
+
+    funcao calcularPrimeiroDia(inteiro mes, inteiro ano) retorna inteiro
+    inicio
+        inteiro dia = 1
+        se (mes < 3) entao
+            mes = mes + 12
+            ano = ano - 1
+        fimse
+
+        inteiro k = ano % 100
+        inteiro j = ano / 100
+        inteiro primeiroDia = (dia + (13 * (mes + 1)) / 5 + k + (k / 4) + (j / 4) - (2 * j)) % 7
+        se (primeiroDia < 0) entao
+            primeiroDia = primeiroDia + 7
+        fimse
+
+        retorna primeiroDia
+    fimfuncao
+
+    funcao calcularDiasNoMes(inteiro mes, inteiro ano) retorna inteiro
+    inicio
+        
+        escolha(mes)
+        inicio
+            caso 1, 3, 5, 7, 8, 10, 12:
+                retorna 31
+            caso 4, 6, 9, 11:
+                retorna 30
+            caso 2:
+                se (ehAnoBissexto(ano)) entao
+                    retorna 29
+                senao
+                    retorna 28
+                fimse
+        fimescolha
+    fimfuncao
+
+    funcao ehAnoBissexto(inteiro ano) retorna logico
+    inicio
+        se ((ano % 4 == 0 e ano % 100 != 0) ou (ano % 400 == 0)) entao
+            retorna verdadeiro
+        senao
+            retorna falso
+        fimse
+    fimfuncao
+
+    funcao exibirCalendario(inteiro primeiroDia, inteiro diasNoMes, inteiro mes, inteiro ano)
+    inicio
+       
+        cadeia diasSemana[7] = {"Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"}
+
+        
+        escreva("\nCalendário de ", mes, "/", ano, "\n")
+        para (inteiro i = 0; i < 7; i++)
+            escreva(diasSemana[i], "\t")
+        fimpara
+        escreva("\n")
+
+        
+        para (inteiro i = 0; i < primeiroDia; i++)
+            escreva("\t")
+        fimpara
+
+        
+        para (inteiro dia = 1; dia <= diasNoMes; dia++)
+            escreva(dia, "\t")
+            se ((dia + primeiroDia) % 7 == 0) entao
+                escreva("\n") // Quebra de linha após sábado
+            fimse
+        fimpara
+
+        escreva("\n")
+    fimfuncao
+Fim.
