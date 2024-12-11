@@ -5,17 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calendário Dinâmico</title>
     <style>
+        h1 {
+            margin: center;
+            text-align:center ;
+        }
         table {
             border-collapse: collapse;
             width: 100%;
-            text-align: center;
+            text-align:center;
         }
         th, td {
-            border: 1px solid #ddd;
+            background-color: #ffd502bc;
+            border: 2px solid #000000;
             padding: 10px;
         }
         th {
-            background-color: #f4f4f4;
+            background-color: rgb(155, 23, 23)
         }
     </style>
 </head>
@@ -35,12 +40,12 @@
         $mes = (int)$_GET['mes'];
         $ano = (int)$_GET['ano'];
 
-        // Obter o primeiro dia do mês e o número de dias no mês
+        
         $primeiroDia = mktime(0, 0, 0, $mes, 1, $ano);
         $diasNoMes = date('t', $primeiroDia);
         $diaDaSemana = date('w', $primeiroDia); // 0 (domingo) a 6 (sábado)
 
-        // Nomes dos dias da semana
+        
         $diasSemana = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
 
         echo "<h2>Calendário de " . date('F', $primeiroDia) . " de $ano</h2>";
@@ -51,21 +56,21 @@
         }
         echo "</tr><tr>";
 
-        // Adicionar células vazias antes do primeiro dia do mês
+        
         for ($i = 0; $i < $diaDaSemana; $i++) {
             echo "<td></td>";
         }
 
-        // Adicionar os dias do mês
+        
         for ($dia = 1; $dia <= $diasNoMes; $dia++) {
             echo "<td>$dia</td>";
-            // Quebra de linha após sábado
+            
             if (($dia + $diaDaSemana) % 7 == 0) {
                 echo "</tr><tr>";
             }
         }
 
-        // Fechar a última linha da tabela
+        
         echo "</tr>";
         echo "</table>";
     }
