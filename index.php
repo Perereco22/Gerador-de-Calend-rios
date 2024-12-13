@@ -17,7 +17,7 @@
             text-align:center;
         }
         th, td {
-            background-color: #08520b;
+            background-color:rgb(76, 93, 77);
             border: 7px solid #000000;
             padding: 10px;
         }
@@ -25,27 +25,27 @@
             background-color: rgba(155, 23, 23)
         }
     #mes{
-            background-color: #9c0404;
+            background-color:rgb(65, 61, 66);
             color: black;
             padding: 5px;
-            border: 3px solid rgb(6, 108, 8);
+            border: 3px solid rgb(128, 5, 5);
             border-radius: 5px;
             text-align: center;
     
         }
     #ano{
 
-        background-color: #9c0404;
+        background-color:rgb(67, 60, 60);
         color: #000000;
         padding: 5px;
-        border: 3px solid rgb(6, 108, 8);
+        border: 3px solid rgb(108, 6, 6);
         border-radius: 5px;
         text-align: center;
         
     }
 
         body{
-            background-image:url( https://th.bing.com/th/id/OIP.fhMJJDkQuOWYzlOHOnvvzwHaE7?w=251&h=180&c=7&r=0&o=5&dpr=1.1&pid=1.7
+            background-image:url( https://img.freepik.com/fotos-premium/fundo-abstrato-onda-branca-papel-de-parede-grafico-branco-minimo-ilustracao-2d_67092-1673.jpg?w=2000
         )
             
         }
